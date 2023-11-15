@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>貨幣匯率換算(自定義)</title>
+</head>
+<body>
+    <h1>選擇主要貨幣</h1>
+    <form method="POST">
+        <label for="optionMain">主要貨幣類別：</label>
+        <select name="optionMain" id="optionMain">
+            {% for option in options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="number" id="main_currency" name="main_currency"><br>
+
+        <label>換算3種貨幣類別：</label><br>
+
+        <label for="option_convert1">第1種換算貨幣：</label>
+        <select name="option_convert1" id="option_convert1">
+            {% for option in options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="option_convert2">第2種換算貨幣：</label>
+        <select name="option_convert2" id="option_convert2">
+            {% for option in options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="option_convert3">第3種換算貨幣：</label>
+        <select name="option_convert3" id="option_convert3">
+            {% for option in options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="提交" onclick="check()">
+    </form>
+
+    <div>
+        <h2>結果：</h2>
+        <p>{{ result_text|safe}}</p><br>
+    </div>
+
+    <div>
+        <h2>API來源 ： ©RTER.info 2023</h2>
+    </div>
+</body>
+</html>
