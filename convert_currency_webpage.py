@@ -6,9 +6,9 @@ app = Flask(__name__)
 r=requests.get('https://tw.rter.info/capi.php')
 ##  API來源 ： ©RTER.info 2023
 currency=r.json()
-USTW=currency['USDTWD']['Exrate']
-USJP=currency['USDJPY']['Exrate']
-USKR=currency['USDKRW']['Exrate']
+# USTW=currency['USDTWD']['Exrate']
+# USJP=currency['USDJPY']['Exrate']
+# USKR=currency['USDKRW']['Exrate']
 getUptadeTime=currency['USDTWD']['UTC']
 
 def convertToResult(MainCurrency,MainMoney,ConvertCurrency):
@@ -66,7 +66,6 @@ def index():
         except:
             result_text = "出現錯誤"
 
-        #result_text = f'OPTION1: {selected_optionMain}, OPTION2: {selected_option_convert1}, OPTION3: {selected_option_convert1}'
         return render_template('convert_currency_page.html', options=options, result_text=result_text)
 
     return render_template('convert_currency_page.html', options=options, result_text='')
